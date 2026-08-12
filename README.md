@@ -1,6 +1,6 @@
-# TAIC: Tumor-Aware Intersection Consistency for Semi-Supervised Brain Tumor Segmentation
+# TAIC: Tumor-Aware Intersection Consistency 
 
-Official PyTorch implementation of **Tumor-Aware Intersection Consistency (TAIC)**, a pseudo-label-free semi-supervised learning framework for tri-planar brain tumor segmentation.
+Official  implementation of "Anatomically Guided Tumor-Aware Intersection Consistency for Pseudo-Label-Free Semi-Supervised Brain Tumor Segmentation"
 
 TAIC enforces prediction consistency along the exact intersection lines shared by axial, coronal, and sagittal views. A tumor-aware weighting strategy emphasizes locations likely to contain tumor tissue, reducing the dominance of background regions during consistency learning.
 
