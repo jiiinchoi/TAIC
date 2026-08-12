@@ -6,24 +6,10 @@ TAIC enforces prediction consistency along the exact intersection lines shared b
 
 ---
 
-## Overview
-
-Semi-supervised medical image segmentation commonly relies on pseudo-labels or teacher-student models. However, inaccurate pseudo-labels may reinforce model errors, particularly when only a small number of labeled cases is available.
-
-TAIC instead exploits the geometric correspondence between tri-planar MRI views. Given a 3D multi-modal MRI volume, the framework:
-
-1. Predicts a tumor anchor using a lightweight 3D anchor prediction head.
-2. Extracts axial, coronal, and sagittal slices passing through the predicted anchor.
-3. Processes the three slices using a shared 2D encoder and view-specific decoders.
-4. Compares predictions along the exact intersection lines shared by each pair of views.
-5. Applies tumor-aware weighting to reduce background dominance.
-
-TAIC does not generate pseudo-labels and does not require an additional teacher network.
-
----
-
 ## Framework
-
+<p align="center">
+  <img src="assets/Figure1.png" width="900" alt="Overview of the TAIC framework">
+</p>
 The model consists of:
 
 - A lightweight 3D tumor anchor prediction head
@@ -119,14 +105,6 @@ python train.py --label_ratio 0.05 --seed 1 --data_root /path/to/BraTS2020
 ```
 
 Uses both labeled and unlabeled volumes with the full TAIC objective (L_seg + L_anchor + L_TAIC).
-
-### Different Label Ratios
-
-```bash
-python train.py --label_ratio 0.05 --seed 1
-python train.py --label_ratio 0.10 --seed 1
-python train.py --label_ratio 0.20 --seed 1
-```
 
 ### Multiple Seeds
 
